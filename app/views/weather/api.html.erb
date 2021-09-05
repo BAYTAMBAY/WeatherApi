@@ -1,0 +1,19 @@
+<%= form_tag(weather_api_path, :method => "get") do %>  
+  <%= search_field_tag :search, params[:search], placeholder: "Arama yap"%>  
+
+<% end%>
+
+<%@b = @json["name"]%>
+
+<h1><%= @b.upcase %></h1>
+<%@b = @json["main"]%>
+<%@c = @b["temp"]%>
+<%@d=@c.to_i-273%>
+
+<div>Sıcaklık => <%=@d.to_s+"°C" %></div>
+<%@b = @json["wind"]%>
+<%@c = @b["speed"]%>
+Rüzgar hızı => <%=@c.to_s+"km/s" %>
+
+
+
