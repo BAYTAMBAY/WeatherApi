@@ -3,17 +3,20 @@
 
 <% end%>
 
-<%@b = @json["name"]%>
+<%@name = @json["name"]%>
 
-<h1><%= @b.upcase %></h1>
-<%@b = @json["main"]%>
-<%@c = @b["temp"]%>
-<%@d=@c.to_i-273%>
+<h1><%= @name.upcase %></h1>
+<%@main = @json["main"]%>
+<%@temp = @main["temp"]%>
+<%@d=@temp.to_i-273%>
 
-<div>Sıcaklık => <%=@d.to_s+"°C" %></div>
-<%@b = @json["wind"]%>
-<%@c = @b["speed"]%>
-Rüzgar hızı => <%=@c.to_s+"km/s" %>
+<div>Sıcaklık => <%=@d.to_s+" °C" %></div>
+<%@wind = @json["wind"]%>
+<%@speed = @wind["speed"]%>
+<div>Rüzgar hızı => <%=@speed.to_s+" km/s" %></div>
+<%@humidity = @main["humidity"]%>
+<div>Nem => <%=@humidity.to_s+" % RH"%></div>
+
 
 
 
